@@ -1,3 +1,7 @@
+## IMPORTANT NOTE
+
+This is an exact copy of shinyRadioMatrix but that creates the widget for a multiple check box. See commit 5edd647 for the only changes performed on the package. Please note that this package is not meant to be used publicly by everyone since I haven't documented the change nor optimized it to be robust. This is something I did for a personal project and use it at your own risk.
+
 
 # shinyRadioMatrix
 
