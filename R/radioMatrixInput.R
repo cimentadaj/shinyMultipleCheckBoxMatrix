@@ -31,12 +31,12 @@
 #' @noRd
 #'
 generateRadioRow <- function(rowID, rowLLabel, rowRLabel, choiceNames, choiceValues,
-                             selected = NULL, labelsWidth = list(NULL, NULL)){
-
+                             selected = NULL, labelsWidth = list(NULL, NULL)) {
 
   row_dat <- mapply(choiceNames, choiceValues, FUN = function(name, value){
 
-    inputTag <- shiny::tags$input(type = "radio", name = rowID,
+    inputTag <- shiny::tags$input(type = "checkbox",
+                                  name = rowID,
                                   title = value, # to provide tooltips with the value
                                   value = value)
     if (value %in% selected)
@@ -152,7 +152,7 @@ generateRadioMatrix <- function (inputId,
                                  selected = NULL,
                                  rowIDsName = "ID",
                                  labelsWidth = list(NULL, NULL),
-                                 session = shiny::getDefaultReactiveDomain()){
+                                 session = shiny::getDefaultReactiveDomain()) {
 
   header <- generateRadioMatrixHeader(choiceNames, rowLLabels, rowRLabels, rowIDsName)
   rows <- lapply(1:length(rowIDs), function(i){
@@ -218,7 +218,7 @@ validateParams <- function(rowIDs,
                            selected, 
                            choiceNames, 
                            rowIDsName, 
-                           labelsWidth){
+                           labelsWidth) {
 
   cv.inv <- ifelse(!is.null(rowRLabels), c("rowLLabels", "rowRLabels"), c("rowLLabels"))
   for (i_i in 1 : length(cv.inv)){
